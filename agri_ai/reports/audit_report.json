@@ -1,0 +1,1626 @@
+[
+ {
+  "section":"1 Architecture",
+  "check":"fichiers requis (main.py + 5 x train.py\/predict.py\/model.onnx)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":"[]"
+ },
+ {
+  "section":"1 Architecture",
+  "check":"chaque dossier modèle contient UNIQUEMENT train.py, predict.py, model.onnx",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":"{'climate': ['__pycache__', 'model.onnx', 'predict.py', 'train.py'], 'soil': ['__pycache__', 'model.onnx', 'predict.py', 'train.py'], 'crop': ['__pycache__', 'model.onnx', 'predict.py', 'train.py'], 'yield': ['__pycache__', 'model.onnx', 'predict.py', 'train.py'], 'recommendation': ['__pycache__', 'model.onnx', 'predict.py', 'train.py']}"
+ },
+ {
+  "section":"1 Architecture",
+  "check":"aucun Docker \/ Kubernetes \/ compose",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Architecture",
+  "check":"aucun serveur \/ microservice \/ API interne (imports)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":"set()"
+ },
+ {
+  "section":"1 Architecture",
+  "check":"une seule base SQLite",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":"['data\/simulation.db']"
+ },
+ {
+  "section":"1 Architecture",
+  "check":"7 tables requises + datasets",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Architecture",
+  "check":"chaque table de données garde sa source",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Architecture",
+  "check":"complexité cyclomatique approx. : 3 plus grosses fonctions",
+  "measured":"core\/twin.py:run=75; main.py:recommend=28; data\/make_datasets.py:build=17",
+  "expected":"",
+  "status":"INFO",
+  "note":"twin.run() est un bloc monolithique (boucle journalière) : lisible mais long ; à découper si maintenance difficile"
+ },
+ {
+  "section":"1 Architecture",
+  "check":"complexité max d'une fonction hors twin.run",
+  "measured":"28",
+  "expected":"[, 60]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Architecture",
+  "check":"longueur du plus gros fichier (lignes)",
+  "measured":"424",
+  "expected":"[, 500]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Architecture",
+  "check":"chaque predict.py <= 25 lignes",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Architecture",
+  "check":"modèles indépendants (aucun predict.py n'importe un autre modèle)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Architecture",
+  "check":"chaque train.py lit uniquement ses colonnes (SELECT explicite, jamais SELECT *)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Architecture",
+  "check":"aucun train.py ne lit un autre modèle (entraînement indépendant)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Architecture",
+  "check":"docstring de module présente (lisibilité)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Architecture",
+  "check":"fonctionnement HORS LIGNE (réseau bloqué, main.py --demo)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":"culture=maize, confiance=0.68"
+ },
+ {
+  "section":"2 Données",
+  "check":"aucun site_id partagé entre train\/val\/test (ds_main)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":"intersections=0"
+ },
+ {
+  "section":"2 Données",
+  "check":"aucun wseed partagé entre train\/val\/test (ds_main)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":"intersections=0"
+ },
+ {
+  "section":"2 Données",
+  "check":"aucun pair_id partagé entre train\/val\/test (ds_main)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":"intersections=0"
+ },
+ {
+  "section":"2 Données",
+  "check":"graines météo disjointes entre splits ET entre ds_climate\/ds_main",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"climate: aucune cible d'un autre modèle parmi ses variables d'entrée",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"climate: aucune variable « future » (préfixe clim_, cibles)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"climate: variables constantes",
+  "measured":"0",
+  "expected":"[, 0]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"climate: paires de variables quasi identiques (|corr|>0.98)",
+  "measured":"0",
+  "expected":"0",
+  "status":"PASS",
+  "note":"[]"
+ },
+ {
+  "section":"2 Données",
+  "check":"soil: aucune cible d'un autre modèle parmi ses variables d'entrée",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"soil: aucune variable « future » (préfixe clim_, cibles)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"soil: variables constantes",
+  "measured":"0",
+  "expected":"[, 0]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"soil: paires de variables quasi identiques (|corr|>0.98)",
+  "measured":"0",
+  "expected":"0",
+  "status":"PASS",
+  "note":"[]"
+ },
+ {
+  "section":"2 Données",
+  "check":"crop: aucune cible d'un autre modèle parmi ses variables d'entrée",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"crop: aucune variable « future » (préfixe clim_, cibles)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"crop: variables constantes",
+  "measured":"0",
+  "expected":"[, 0]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"crop: paires de variables quasi identiques (|corr|>0.98)",
+  "measured":"0",
+  "expected":"0",
+  "status":"PASS",
+  "note":"[]"
+ },
+ {
+  "section":"2 Données",
+  "check":"yield: aucune cible d'un autre modèle parmi ses variables d'entrée",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"yield: aucune variable « future » (préfixe clim_, cibles)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"yield: variables constantes",
+  "measured":"0",
+  "expected":"[, 0]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"yield: paires de variables quasi identiques (|corr|>0.98)",
+  "measured":"0",
+  "expected":"0",
+  "status":"PASS",
+  "note":"[]"
+ },
+ {
+  "section":"2 Données",
+  "check":"recommendation: entrées = sorties des 4 autres modèles uniquement (+ culture)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"cohérence temporelle : variables pré-saison insensibles à la météo future (test de remplacement)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"lignes dupliquées (ds_main)",
+  "measured":"0",
+  "expected":"[, 0]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"vecteurs d'entrée de test déjà vus en train (contamination)",
+  "measured":"0",
+  "expected":"[, 0]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"unités\/plages : valeurs hors plages physiques",
+  "measured":"0",
+  "expected":"[, 0]",
+  "status":"PASS",
+  "note":"{}"
+ },
+ {
+  "section":"2 Données",
+  "check":"valeurs manquantes (ds_main, ds_climate)",
+  "measured":"0, 0",
+  "expected":"0, 0",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"saisons avec érosion extrême (> 300 t\/ha)",
+  "measured":"12",
+  "expected":"[, 0]",
+  "status":"WARN",
+  "note":"tempête exceptionnelle sur forte pente : physiquement possible mais rare ; à surveiller"
+ },
+ {
+  "section":"2 Données",
+  "check":"valeurs aberrantes yield_t_ha (> 8 MAD, %)",
+  "measured":"7.3",
+  "expected":"[, 5]",
+  "status":"WARN",
+  "note":"les queues lourdes sont physiques (érosion, pluies) : conservées, interprétées par les intervalles"
+ },
+ {
+  "section":"2 Données",
+  "check":"valeurs aberrantes erosion_t_ha (> 8 MAD, %)",
+  "measured":"8.8",
+  "expected":"[, 5]",
+  "status":"WARN",
+  "note":"les queues lourdes sont physiques (érosion, pluies) : conservées, interprétées par les intervalles"
+ },
+ {
+  "section":"2 Données",
+  "check":"valeurs aberrantes water_use_mm (> 8 MAD, %)",
+  "measured":"2.2",
+  "expected":"[, 5]",
+  "status":"PASS",
+  "note":"les queues lourdes sont physiques (érosion, pluies) : conservées, interprétées par les intervalles"
+ },
+ {
+  "section":"2 Données",
+  "check":"valeurs aberrantes season_rain_mm (> 8 MAD, %)",
+  "measured":"0.0",
+  "expected":"[, 5]",
+  "status":"PASS",
+  "note":"les queues lourdes sont physiques (érosion, pluies) : conservées, interprétées par les intervalles"
+ },
+ {
+  "section":"2 Données",
+  "check":"équilibre des lignes par culture (min\/max)",
+  "measured":"0.893",
+  "expected":"[0.8, ]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"équilibre des classes de décision (meilleure culture de référence)",
+  "measured":"maize 59%, bean 18%, cassava 12%, groundnut 10%, rice_upland 1%",
+  "expected":"chaque classe >= 3 %, aucune > 60 %",
+  "status":"WARN",
+  "note":"déséquilibre issu de la règle de valeur (policy.py) : le riz pluvial est presque jamais optimal ; ne pas évaluer l'IA par l'exactitude brute mais par le regret"
+ },
+ {
+  "section":"2 Données",
+  "check":"régions présentes dans train",
+  "measured":"6",
+  "expected":"6",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"régions présentes dans val",
+  "measured":"6",
+  "expected":"6",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"régions présentes dans test",
+  "measured":"6",
+  "expected":"6",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"équilibre des distributions train vs test : KS max",
+  "measured":"0.189",
+  "expected":"[, 0.15]",
+  "status":"WARN",
+  "note":"drain"
+ },
+ {
+  "section":"2 Données",
+  "check":"équilibre des distributions train vs test : KS moyen",
+  "measured":"0.072",
+  "expected":"[, 0.08]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Données",
+  "check":"part d'événements extrêmes par split",
+  "measured":"test 29%, train 29%, val 29%",
+  "expected":"similaire (~30 %)",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate: séparation train\/val\/test appliquée (tailles 4200\/900\/900)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate: parité ONNX vs scikit-learn (écart max)",
+  "measured":"1.6e-04",
+  "expected":"[, 0.001]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate: stabilité validation croisée par groupes (écart-type R2)",
+  "measured":"0.025",
+  "expected":"[, 0.1]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate: faux positifs hors-domaine sur test",
+  "measured":"0.003",
+  "expected":"[, 0.05]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/season_rain_mm: sur-apprentissage (écart val\/train relatif)",
+  "measured":"0.128",
+  "expected":"[, 0.3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/season_rain_mm: R2 train\/val\/test",
+  "measured":"0.27 \/ 0.20 \/ 0.15",
+  "expected":"R2 val >= 0.15 (sinon sous-apprentissage)",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/season_rain_mm: couverture de l'intervalle à 80 % sur test",
+  "measured":"0.86",
+  "expected":"[0.72, 0.88]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/season_rain_mm: gain vs prédiction constante",
+  "measured":"0.10",
+  "expected":"[0.05, ]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/season_rain_mm: courbe d'apprentissage (gain val 50%->100 % des données)",
+  "measured":"-0.2%",
+  "expected":"< 5 % = données suffisantes",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/dry_spell_days: sur-apprentissage (écart val\/train relatif)",
+  "measured":"0.088",
+  "expected":"[, 0.3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/dry_spell_days: R2 train\/val\/test",
+  "measured":"0.37 \/ 0.26 \/ 0.31",
+  "expected":"R2 val >= 0.15 (sinon sous-apprentissage)",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/dry_spell_days: couverture de l'intervalle à 80 % sur test",
+  "measured":"0.83",
+  "expected":"[0.72, 0.88]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/dry_spell_days: gain vs prédiction constante",
+  "measured":"0.25",
+  "expected":"[0.05, ]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/dry_spell_days: courbe d'apprentissage (gain val 50%->100 % des données)",
+  "measured":"-0.2%",
+  "expected":"< 5 % = données suffisantes",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/max3_rain_mm: sur-apprentissage (écart val\/train relatif)",
+  "measured":"0.111",
+  "expected":"[, 0.3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/max3_rain_mm: R2 train\/val\/test",
+  "measured":"-0.02 \/ -0.08 \/ -0.07",
+  "expected":"R2 val >= 0.15 (sinon sous-apprentissage)",
+  "status":"WARN",
+  "note":"peu prévisible avant la saison : l'intervalle porte l'information"
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/max3_rain_mm: couverture de l'intervalle à 80 % sur test",
+  "measured":"0.82",
+  "expected":"[0.72, 0.88]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/max3_rain_mm: gain vs prédiction constante",
+  "measured":"0.01",
+  "expected":"[0.05, ]",
+  "status":"WARN",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/max3_rain_mm: courbe d'apprentissage (gain val 50%->100 % des données)",
+  "measured":"1.0%",
+  "expected":"< 5 % = données suffisantes",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/heat_days: sur-apprentissage (écart val\/train relatif)",
+  "measured":"-2.551",
+  "expected":"[, 0.3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/heat_days: R2 train\/val\/test",
+  "measured":"-0.02 \/ -0.01 \/ -0.01",
+  "expected":"R2 val >= 0.15 (sinon sous-apprentissage)",
+  "status":"WARN",
+  "note":"peu prévisible avant la saison : l'intervalle porte l'information"
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/heat_days: couverture de l'intervalle à 80 % sur test",
+  "measured":"0.98",
+  "expected":"[0.72, 0.88]",
+  "status":"WARN",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/heat_days: gain vs prédiction constante",
+  "measured":"0.00",
+  "expected":"[0.05, ]",
+  "status":"WARN",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/heat_days: courbe d'apprentissage (gain val 50%->100 % des données)",
+  "measured":"0.0%",
+  "expected":"< 5 % = données suffisantes",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/et0_season_mm: sur-apprentissage (écart val\/train relatif)",
+  "measured":"0.099",
+  "expected":"[, 0.3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/et0_season_mm: R2 train\/val\/test",
+  "measured":"0.47 \/ 0.40 \/ 0.40",
+  "expected":"R2 val >= 0.15 (sinon sous-apprentissage)",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/et0_season_mm: couverture de l'intervalle à 80 % sur test",
+  "measured":"0.83",
+  "expected":"[0.72, 0.88]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/et0_season_mm: gain vs prédiction constante",
+  "measured":"0.23",
+  "expected":"[0.05, ]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate\/et0_season_mm: courbe d'apprentissage (gain val 50%->100 % des données)",
+  "measured":"-0.5%",
+  "expected":"< 5 % = données suffisantes",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"climate: corrections automatiques proposées",
+  "measured":"max3_rain_mm: biais élevé (R2 train -0.02, val -0.08) -> ajouter des variables informatives ou de la capacité | max3_rain_mm: aucun gain sur la médiane constante (1%) -> variable difficilement prévisible ; la confiance est limitée à l'intervalle | heat_days: biais élevé (R2 train -0.02, val -0.01) -> ajouter des variables informatives ou de la capacité | heat_days: aucun gain sur la médiane consta",
+  "expected":"",
+  "status":"INFO",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil: séparation train\/val\/test appliquée (tailles 6854\/1464\/1468)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil: parité ONNX vs scikit-learn (écart max)",
+  "measured":"1.7e-04",
+  "expected":"[, 0.001]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil: stabilité validation croisée par groupes (écart-type R2)",
+  "measured":"0.080",
+  "expected":"[, 0.1]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil: faux positifs hors-domaine sur test",
+  "measured":"0.029",
+  "expected":"[, 0.05]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil\/erosion_t_ha: sur-apprentissage (écart val\/train relatif)",
+  "measured":"-0.166",
+  "expected":"[, 0.3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil\/erosion_t_ha: R2 train\/val\/test",
+  "measured":"0.36 \/ 0.28 \/ 0.42",
+  "expected":"R2 val >= 0.15 (sinon sous-apprentissage)",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil\/erosion_t_ha: couverture de l'intervalle à 80 % sur test",
+  "measured":"0.81",
+  "expected":"[0.72, 0.88]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil\/erosion_t_ha: gain vs prédiction constante",
+  "measured":"0.32",
+  "expected":"[0.05, ]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil\/erosion_t_ha: courbe d'apprentissage (gain val 50%->100 % des données)",
+  "measured":"1.5%",
+  "expected":"< 5 % = données suffisantes",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil\/d_soc_pct: sur-apprentissage (écart val\/train relatif)",
+  "measured":"0.310",
+  "expected":"[, 0.3]",
+  "status":"WARN",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil\/d_soc_pct: R2 train\/val\/test",
+  "measured":"0.82 \/ 0.75 \/ 0.83",
+  "expected":"R2 val >= 0.15 (sinon sous-apprentissage)",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil\/d_soc_pct: couverture de l'intervalle à 80 % sur test",
+  "measured":"0.79",
+  "expected":"[0.72, 0.88]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil\/d_soc_pct: gain vs prédiction constante",
+  "measured":"0.64",
+  "expected":"[0.05, ]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil\/d_soc_pct: courbe d'apprentissage (gain val 50%->100 % des données)",
+  "measured":"2.6%",
+  "expected":"< 5 % = données suffisantes",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil\/d_ph: sur-apprentissage (écart val\/train relatif)",
+  "measured":"0.283",
+  "expected":"[, 0.3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil\/d_ph: R2 train\/val\/test",
+  "measured":"0.98 \/ 0.99 \/ 0.98",
+  "expected":"R2 val >= 0.15 (sinon sous-apprentissage)",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil\/d_ph: couverture de l'intervalle à 80 % sur test",
+  "measured":"0.81",
+  "expected":"[0.72, 0.88]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil\/d_ph: gain vs prédiction constante",
+  "measured":"0.87",
+  "expected":"[0.05, ]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil\/d_ph: courbe d'apprentissage (gain val 50%->100 % des données)",
+  "measured":"3.0%",
+  "expected":"< 5 % = données suffisantes",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil\/n_leach_kg: sur-apprentissage (écart val\/train relatif)",
+  "measured":"0.265",
+  "expected":"[, 0.3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil\/n_leach_kg: R2 train\/val\/test",
+  "measured":"0.91 \/ 0.89 \/ 0.88",
+  "expected":"R2 val >= 0.15 (sinon sous-apprentissage)",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil\/n_leach_kg: couverture de l'intervalle à 80 % sur test",
+  "measured":"0.77",
+  "expected":"[0.72, 0.88]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil\/n_leach_kg: gain vs prédiction constante",
+  "measured":"0.68",
+  "expected":"[0.05, ]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil\/n_leach_kg: courbe d'apprentissage (gain val 50%->100 % des données)",
+  "measured":"5.1%",
+  "expected":"< 5 % = données suffisantes",
+  "status":"INFO",
+  "note":"plus de données amélioreraient encore le modèle"
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil: corrections automatiques proposées",
+  "measured":"d_soc_pct: variance élevée (écart train\/val 31%) -> augmenter min_samples_leaf, réduire la profondeur, ajouter des données",
+  "expected":"",
+  "status":"INFO",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop: séparation train\/val\/test appliquée (tailles 6854\/1464\/1468)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop: parité ONNX vs scikit-learn (écart max)",
+  "measured":"6.1e-04",
+  "expected":"[, 0.001]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop: stabilité validation croisée par groupes (écart-type R2)",
+  "measured":"0.000",
+  "expected":"[, 0.1]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop: faux positifs hors-domaine sur test",
+  "measured":"0.022",
+  "expected":"[, 0.05]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop\/days_to_harvest: sur-apprentissage (écart val\/train relatif)",
+  "measured":"0.148",
+  "expected":"[, 0.3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop\/days_to_harvest: R2 train\/val\/test",
+  "measured":"1.00 \/ 1.00 \/ 1.00",
+  "expected":"R2 val >= 0.15 (sinon sous-apprentissage)",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop\/days_to_harvest: couverture de l'intervalle à 80 % sur test",
+  "measured":"0.79",
+  "expected":"[0.72, 0.88]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop\/days_to_harvest: gain vs prédiction constante",
+  "measured":"0.96",
+  "expected":"[0.05, ]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop\/days_to_harvest: courbe d'apprentissage (gain val 50%->100 % des données)",
+  "measured":"0.2%",
+  "expected":"< 5 % = données suffisantes",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop\/water_use_mm: sur-apprentissage (écart val\/train relatif)",
+  "measured":"0.184",
+  "expected":"[, 0.3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop\/water_use_mm: R2 train\/val\/test",
+  "measured":"0.98 \/ 0.97 \/ 0.97",
+  "expected":"R2 val >= 0.15 (sinon sous-apprentissage)",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop\/water_use_mm: couverture de l'intervalle à 80 % sur test",
+  "measured":"0.80",
+  "expected":"[0.72, 0.88]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop\/water_use_mm: gain vs prédiction constante",
+  "measured":"0.84",
+  "expected":"[0.05, ]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop\/water_use_mm: courbe d'apprentissage (gain val 50%->100 % des données)",
+  "measured":"1.3%",
+  "expected":"< 5 % = données suffisantes",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop\/water_stress: sur-apprentissage (écart val\/train relatif)",
+  "measured":"0.204",
+  "expected":"[, 0.3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop\/water_stress: R2 train\/val\/test",
+  "measured":"0.77 \/ 0.73 \/ 0.75",
+  "expected":"R2 val >= 0.15 (sinon sous-apprentissage)",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop\/water_stress: couverture de l'intervalle à 80 % sur test",
+  "measured":"0.87",
+  "expected":"[0.72, 0.88]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop\/water_stress: gain vs prédiction constante",
+  "measured":"0.52",
+  "expected":"[0.05, ]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop\/water_stress: courbe d'apprentissage (gain val 50%->100 % des données)",
+  "measured":"4.7%",
+  "expected":"< 5 % = données suffisantes",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop\/n_uptake_kg: sur-apprentissage (écart val\/train relatif)",
+  "measured":"0.268",
+  "expected":"[, 0.3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop\/n_uptake_kg: R2 train\/val\/test",
+  "measured":"0.92 \/ 0.88 \/ 0.89",
+  "expected":"R2 val >= 0.15 (sinon sous-apprentissage)",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop\/n_uptake_kg: couverture de l'intervalle à 80 % sur test",
+  "measured":"0.86",
+  "expected":"[0.72, 0.88]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop\/n_uptake_kg: gain vs prédiction constante",
+  "measured":"0.70",
+  "expected":"[0.05, ]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop\/n_uptake_kg: courbe d'apprentissage (gain val 50%->100 % des données)",
+  "measured":"5.8%",
+  "expected":"< 5 % = données suffisantes",
+  "status":"INFO",
+  "note":"plus de données amélioreraient encore le modèle"
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop: corrections automatiques proposées",
+  "measured":"aucune correction nécessaire selon les seuils automatiques",
+  "expected":"",
+  "status":"INFO",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"yield: séparation train\/val\/test appliquée (tailles 6854\/1464\/1468)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"yield: parité ONNX vs scikit-learn (écart max)",
+  "measured":"9.2e-06",
+  "expected":"[, 0.001]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"yield: stabilité validation croisée par groupes (écart-type R2)",
+  "measured":"0.010",
+  "expected":"[, 0.1]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"yield: faux positifs hors-domaine sur test",
+  "measured":"0.025",
+  "expected":"[, 0.05]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"yield\/yield_t_ha: sur-apprentissage (écart val\/train relatif)",
+  "measured":"0.161",
+  "expected":"[, 0.3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"yield\/yield_t_ha: R2 train\/val\/test",
+  "measured":"0.90 \/ 0.88 \/ 0.86",
+  "expected":"R2 val >= 0.15 (sinon sous-apprentissage)",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"yield\/yield_t_ha: couverture de l'intervalle à 80 % sur test",
+  "measured":"0.82",
+  "expected":"[0.72, 0.88]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"yield\/yield_t_ha: gain vs prédiction constante",
+  "measured":"0.68",
+  "expected":"[0.05, ]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"yield\/yield_t_ha: courbe d'apprentissage (gain val 50%->100 % des données)",
+  "measured":"5.9%",
+  "expected":"< 5 % = données suffisantes",
+  "status":"INFO",
+  "note":"plus de données amélioreraient encore le modèle"
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"yield: corrections automatiques proposées",
+  "measured":"aucune correction nécessaire selon les seuils automatiques",
+  "expected":"",
+  "status":"INFO",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"recommendation: séparation train\/val\/test appliquée (tailles 6854\/1464\/1468)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"recommendation: parité ONNX vs scikit-learn (écart max)",
+  "measured":"5.7e-06",
+  "expected":"[, 0.001]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"recommendation: stabilité validation croisée par groupes (écart-type R2)",
+  "measured":"0.001",
+  "expected":"[, 0.1]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"recommendation: faux positifs hors-domaine sur test",
+  "measured":"0.005",
+  "expected":"[, 0.05]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"recommendation\/score_ref: sur-apprentissage (écart val\/train relatif)",
+  "measured":"0.255",
+  "expected":"[, 0.3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"recommendation\/score_ref: R2 train\/val\/test",
+  "measured":"0.99 \/ 0.98 \/ 0.99",
+  "expected":"R2 val >= 0.15 (sinon sous-apprentissage)",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"recommendation\/score_ref: couverture de l'intervalle à 80 % sur test",
+  "measured":"0.80",
+  "expected":"[0.72, 0.88]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"recommendation\/score_ref: gain vs prédiction constante",
+  "measured":"0.92",
+  "expected":"[0.05, ]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"recommendation\/score_ref: courbe d'apprentissage (gain val 50%->100 % des données)",
+  "measured":"8.3%",
+  "expected":"< 5 % = données suffisantes",
+  "status":"INFO",
+  "note":"plus de données amélioreraient encore le modèle"
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"recommendation: corrections automatiques proposées",
+  "measured":"aucune correction nécessaire selon les seuils automatiques",
+  "expected":"",
+  "status":"INFO",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil: robustesse au bruit +-5 % sur les entrées (variation relative moyenne des sorties)",
+  "measured":"0.050",
+  "expected":"[, 0.1]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil: détection hors-domaine (décalage de 8 écarts-types sur 'soc_pct')",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":"détecté 100%"
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"soil: baisse de confiance sur données hors domaine",
+  "measured":"0.21",
+  "expected":"[, 0.6]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop: robustesse au bruit +-5 % sur les entrées (variation relative moyenne des sorties)",
+  "measured":"0.075",
+  "expected":"[, 0.1]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop: détection hors-domaine (décalage de 8 écarts-types sur 'lat')",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":"détecté 100%"
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"crop: baisse de confiance sur données hors domaine",
+  "measured":"0.22",
+  "expected":"[, 0.6]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"yield: robustesse au bruit +-5 % sur les entrées (variation relative moyenne des sorties)",
+  "measured":"0.051",
+  "expected":"[, 0.1]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"yield: détection hors-domaine (décalage de 8 écarts-types sur 'lat')",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":"détecté 100%"
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"yield: baisse de confiance sur données hors domaine",
+  "measured":"0.28",
+  "expected":"[, 0.6]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"Yield AI : région 'bukavu' jamais vue (R2) vs région vue",
+  "measured":"0.54 vs 0.76",
+  "expected":"chute attendue",
+  "status":"INFO",
+  "note":"mesure de la généralisation spatiale ; si la chute est forte, le système doit signaler « données jamais vues »"
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"Yield AI : région 'lubumbashi' jamais vue (R2) vs région vue",
+  "measured":"0.45 vs 0.72",
+  "expected":"chute attendue",
+  "status":"INFO",
+  "note":"mesure de la généralisation spatiale ; si la chute est forte, le système doit signaler « données jamais vues »"
+ },
+ {
+  "section":"2 Données",
+  "check":"couverture : paires d'entraînement par type d'événement (minimum, hors « none »)",
+  "measured":"58",
+  "expected":"[50, ]",
+  "status":"PASS",
+  "note":"{'none': 994, 'dry_spell': 79, 'pest': 71, 'disease': 67, 'flood': 66, 'heatwave': 65, 'drought': 58}"
+ },
+ {
+  "section":"2 Données",
+  "check":"couverture : saisons très sèches (pluie < 60 % de la normale, %)",
+  "measured":"3.5",
+  "expected":"[5, ]",
+  "status":"WARN",
+  "note":"extrême rare : peu d'exemples pour apprendre la sécheresse"
+ },
+ {
+  "section":"2 Données",
+  "check":"couverture : saisons avec au moins 3 jours à 35 °C ou plus (%)",
+  "measured":"2.2",
+  "expected":"[5, ]",
+  "status":"WARN",
+  "note":"explique l'absence de gain du Climate AI sur la chaleur"
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"Yield AI par event = disease (n=44) : couverture 80 % \/ R2 \/ MAE t\/ha",
+  "measured":"86% \/ 0.81 \/ 0.76",
+  "expected":"couverture 72-88 %, R2 >= 0.6",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"Yield AI par event = drought (n=60) : couverture 80 % \/ R2 \/ MAE t\/ha",
+  "measured":"68% \/ 0.72 \/ 1.23",
+  "expected":"couverture 72-88 %, R2 >= 0.6",
+  "status":"WARN",
+  "note":"trop sûr de lui : intervalle trop étroit"
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"Yield AI par event = dry_spell (n=61) : couverture 80 % \/ R2 \/ MAE t\/ha",
+  "measured":"82% \/ 0.89 \/ 0.54",
+  "expected":"couverture 72-88 %, R2 >= 0.6",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"Yield AI par event = flood (n=69) : couverture 80 % \/ R2 \/ MAE t\/ha",
+  "measured":"83% \/ 0.86 \/ 0.49",
+  "expected":"couverture 72-88 %, R2 >= 0.6",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"Yield AI par event = heatwave (n=104) : couverture 80 % \/ R2 \/ MAE t\/ha",
+  "measured":"88% \/ 0.87 \/ 0.79",
+  "expected":"couverture 72-88 %, R2 >= 0.6",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"Yield AI par event = none (n=1036) : couverture 80 % \/ R2 \/ MAE t\/ha",
+  "measured":"83% \/ 0.88 \/ 0.63",
+  "expected":"couverture 72-88 %, R2 >= 0.6",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"Yield AI par event = pest (n=94) : couverture 80 % \/ R2 \/ MAE t\/ha",
+  "measured":"81% \/ 0.75 \/ 0.80",
+  "expected":"couverture 72-88 %, R2 >= 0.6",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"Yield AI par region = bukavu (n=235) : couverture 80 % \/ R2 \/ MAE t\/ha",
+  "measured":"74% \/ 0.76 \/ 1.40",
+  "expected":"couverture 72-88 %, R2 >= 0.6",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"Yield AI par region = kananga (n=220) : couverture 80 % \/ R2 \/ MAE t\/ha",
+  "measured":"75% \/ 0.70 \/ 0.62",
+  "expected":"couverture 72-88 %, R2 >= 0.6",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"Yield AI par region = kinshasa (n=255) : couverture 80 % \/ R2 \/ MAE t\/ha",
+  "measured":"85% \/ 0.83 \/ 0.37",
+  "expected":"couverture 72-88 %, R2 >= 0.6",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"Yield AI par region = kisangani (n=265) : couverture 80 % \/ R2 \/ MAE t\/ha",
+  "measured":"86% \/ 0.87 \/ 0.74",
+  "expected":"couverture 72-88 %, R2 >= 0.6",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"Yield AI par region = lubumbashi (n=218) : couverture 80 % \/ R2 \/ MAE t\/ha",
+  "measured":"84% \/ 0.72 \/ 0.28",
+  "expected":"couverture 72-88 %, R2 >= 0.6",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"Yield AI par region = mbandaka (n=275) : couverture 80 % \/ R2 \/ MAE t\/ha",
+  "measured":"89% \/ 0.94 \/ 0.61",
+  "expected":"couverture 72-88 %, R2 >= 0.6",
+  "status":"WARN",
+  "note":"intervalle trop large (prudent, sans danger)"
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"calibration P(saison sèche >14 j) : ECE",
+  "measured":"0.067",
+  "expected":"[, 0.1]",
+  "status":"PASS",
+  "note":"Brier 0.142 vs climatologie 0.199"
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"calibration P(pluie 3 j >100 mm) : ECE",
+  "measured":"0.038",
+  "expected":"[, 0.1]",
+  "status":"PASS",
+  "note":"Brier 0.226 vs climatologie 0.225"
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"BOUT EN BOUT (300 paires de test) : regret moyen relatif IA \/ aléatoire \/ toujours maïs \/ meilleure culture par région",
+  "measured":"6.1% \/ 33.4% \/ 14.6% \/ 13.0%",
+  "expected":"IA < toutes les références",
+  "status":"PASS",
+  "note":"regret = score de la meilleure culture (vérité du jumeau) - score de la culture recommandée"
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"bout en bout : la culture recommandée est la meilleure (exactitude top-1)",
+  "measured":"0.67",
+  "expected":"[0.4, ]",
+  "status":"PASS",
+  "note":"pas de chance = 20 % ; classes déséquilibrées"
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"bout en bout : recommandation à moins de 10 % du meilleur score",
+  "measured":"0.76",
+  "expected":"[0.6, ]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"bout en bout : couverture de l'intervalle du score (80 % nominal)",
+  "measured":"0.26",
+  "expected":"[0.7, 0.9]",
+  "status":"WARN",
+  "note":"chaîne réelle : les erreurs des modèles amont se cumulent"
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"confiance affichée vs réussite réelle (tercile bas\/moyen\/haut)",
+  "measured":"basse 71%, moyenne 74%, haute 82%",
+  "expected":"croissante",
+  "status":"PASS",
+  "note":"confiance moyenne 47% ; réussite moyenne 76%"
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"confiance moyenne - réussite moyenne (sur-confiance si > 0)",
+  "measured":"-0.29",
+  "expected":"[-0.2, 0.1]",
+  "status":"WARN",
+  "note":"la confiance ne doit pas dépasser la réussite observée"
+ },
+ {
+  "section":"3 Machine learning",
+  "check":"confiance maximale affichée (jamais de certitude)",
+  "measured":"0.69",
+  "expected":"[, 0.95]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"4 Jumeau numérique",
+  "check":"audit du jumeau — 1 Climat",
+  "measured":"54\/54 PASS (INFO inclus)",
+  "expected":"aucun FAIL",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"4 Jumeau numérique",
+  "check":"audit du jumeau — 2 Bilans (conservation)",
+  "measured":"5\/5 PASS (INFO inclus)",
+  "expected":"aucun FAIL",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"4 Jumeau numérique",
+  "check":"audit du jumeau — 3 Rendements (plausibilité)",
+  "measured":"11\/11 PASS (INFO inclus)",
+  "expected":"aucun FAIL",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"4 Jumeau numérique",
+  "check":"audit du jumeau — 4 Sensibilités (réponse causale)",
+  "measured":"11\/11 PASS (INFO inclus)",
+  "expected":"aucun FAIL",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"4 Jumeau numérique",
+  "check":"audit du jumeau — 5 Dynamique du sol (10 ans)",
+  "measured":"4\/4 PASS (INFO inclus)",
+  "expected":"aucun FAIL",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"4 Jumeau numérique",
+  "check":"audit du jumeau — 6 Robustesse des entrées",
+  "measured":"5\/5 PASS (INFO inclus)",
+  "expected":"aucun FAIL",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"4 Jumeau numérique",
+  "check":"audit du jumeau — 8 Performance",
+  "measured":"4\/4 PASS (INFO inclus)",
+  "expected":"aucun FAIL",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"4 Jumeau numérique",
+  "check":"audit du jumeau — 9 Stabilité numérique",
+  "measured":"3\/3 PASS (INFO inclus)",
+  "expected":"aucun FAIL",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"4 Jumeau numérique",
+  "check":"adaptateurs (POWER, GPM, SMAP, MODIS, SoilGrids, FAOSTAT) sur charges fictives",
+  "measured":"18\/18 tests adaptateurs OK",
+  "expected":"tous OK",
+  "status":"PASS",
+  "note":"format documenté, JAMAIS testé contre les services réels"
+ },
+ {
+  "section":"5 Validation scientifique",
+  "check":"aucune validation externe déclarée sans données réelles (GPM\/SMAP\/MODIS : « NON RÉALISÉE »)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":"lignes réelles en base : 0"
+ },
+ {
+  "section":"5 Validation scientifique",
+  "check":"code de validation exécutable sur données factices (test du code uniquement)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":"ce test ne valide PAS le jumeau"
+ },
+ {
+  "section":"5 Validation scientifique",
+  "check":"rapport de validation (reports\/validation_report.md)",
+  "measured":"généré",
+  "expected":"",
+  "status":"PASS",
+  "note":"contenu : validation interne \/ calibration \/ validation externe (externe = NON RÉALISÉE sans données réelles)"
+ }
+]

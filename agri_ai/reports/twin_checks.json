@@ -1,0 +1,778 @@
+[
+ {
+  "section":"1 Climat",
+  "check":"kinshasa: pluie annuelle vs cible (écart %)",
+  "measured":"-4.2",
+  "expected":"[-8, 8]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"kinshasa: corrélation cycle mensuel",
+  "measured":"0.996",
+  "expected":"[0.95, ]",
+  "status":"PASS",
+  "note":"seuil 0.95 : régimes équatoriaux à cycle plat = faible rapport signal\/bruit"
+ },
+ {
+  "section":"1 Climat",
+  "check":"kinshasa: CV interannuel pluie",
+  "measured":"0.171",
+  "expected":"[0.07, 0.3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"kinshasa: erreur T moyenne (°C, max mensuel)",
+  "measured":"0.250",
+  "expected":"[, 0.8]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"kinshasa: ET0 annuelle (mm)",
+  "measured":"1462",
+  "expected":"[1000, 1650]",
+  "status":"PASS",
+  "note":"plage large : à calibrer sur POWER"
+ },
+ {
+  "section":"1 Climat",
+  "check":"kinshasa: RH moyenne (%)",
+  "measured":"70",
+  "expected":"[55, 85]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"kinshasa: fréquence jours humides",
+  "measured":"0.334",
+  "expected":"[0.2, 0.55]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"kinshasa: QC physique (plages, Tmax>=Tmin, NaN)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"kinshasa: Rs <= 0.82 Ra",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"kisangani: pluie annuelle vs cible (écart %)",
+  "measured":"-2.6",
+  "expected":"[-8, 8]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"kisangani: corrélation cycle mensuel",
+  "measured":"0.966",
+  "expected":"[0.95, ]",
+  "status":"PASS",
+  "note":"seuil 0.95 : régimes équatoriaux à cycle plat = faible rapport signal\/bruit"
+ },
+ {
+  "section":"1 Climat",
+  "check":"kisangani: CV interannuel pluie",
+  "measured":"0.172",
+  "expected":"[0.07, 0.3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"kisangani: erreur T moyenne (°C, max mensuel)",
+  "measured":"0.135",
+  "expected":"[, 0.8]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"kisangani: ET0 annuelle (mm)",
+  "measured":"1330",
+  "expected":"[1000, 1650]",
+  "status":"PASS",
+  "note":"plage large : à calibrer sur POWER"
+ },
+ {
+  "section":"1 Climat",
+  "check":"kisangani: RH moyenne (%)",
+  "measured":"74",
+  "expected":"[55, 85]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"kisangani: fréquence jours humides",
+  "measured":"0.458",
+  "expected":"[0.2, 0.55]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"kisangani: QC physique (plages, Tmax>=Tmin, NaN)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"kisangani: Rs <= 0.82 Ra",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"bukavu: pluie annuelle vs cible (écart %)",
+  "measured":"-3.2",
+  "expected":"[-8, 8]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"bukavu: corrélation cycle mensuel",
+  "measured":"0.990",
+  "expected":"[0.95, ]",
+  "status":"PASS",
+  "note":"seuil 0.95 : régimes équatoriaux à cycle plat = faible rapport signal\/bruit"
+ },
+ {
+  "section":"1 Climat",
+  "check":"bukavu: CV interannuel pluie",
+  "measured":"0.148",
+  "expected":"[0.07, 0.3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"bukavu: erreur T moyenne (°C, max mensuel)",
+  "measured":"0.112",
+  "expected":"[, 0.8]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"bukavu: ET0 annuelle (mm)",
+  "measured":"1306",
+  "expected":"[1000, 1650]",
+  "status":"PASS",
+  "note":"plage large : à calibrer sur POWER"
+ },
+ {
+  "section":"1 Climat",
+  "check":"bukavu: RH moyenne (%)",
+  "measured":"66",
+  "expected":"[55, 85]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"bukavu: fréquence jours humides",
+  "measured":"0.340",
+  "expected":"[0.2, 0.55]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"bukavu: QC physique (plages, Tmax>=Tmin, NaN)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"bukavu: Rs <= 0.82 Ra",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"lubumbashi: pluie annuelle vs cible (écart %)",
+  "measured":"+0.2",
+  "expected":"[-8, 8]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"lubumbashi: corrélation cycle mensuel",
+  "measured":"0.985",
+  "expected":"[0.95, ]",
+  "status":"PASS",
+  "note":"seuil 0.95 : régimes équatoriaux à cycle plat = faible rapport signal\/bruit"
+ },
+ {
+  "section":"1 Climat",
+  "check":"lubumbashi: CV interannuel pluie",
+  "measured":"0.196",
+  "expected":"[0.07, 0.3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"lubumbashi: erreur T moyenne (°C, max mensuel)",
+  "measured":"0.365",
+  "expected":"[, 0.8]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"lubumbashi: ET0 annuelle (mm)",
+  "measured":"1389",
+  "expected":"[1000, 1650]",
+  "status":"PASS",
+  "note":"plage large : à calibrer sur POWER"
+ },
+ {
+  "section":"1 Climat",
+  "check":"lubumbashi: RH moyenne (%)",
+  "measured":"58",
+  "expected":"[55, 85]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"lubumbashi: fréquence jours humides",
+  "measured":"0.270",
+  "expected":"[0.2, 0.55]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"lubumbashi: QC physique (plages, Tmax>=Tmin, NaN)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"lubumbashi: Rs <= 0.82 Ra",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"kananga: pluie annuelle vs cible (écart %)",
+  "measured":"-3.7",
+  "expected":"[-8, 8]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"kananga: corrélation cycle mensuel",
+  "measured":"0.992",
+  "expected":"[0.95, ]",
+  "status":"PASS",
+  "note":"seuil 0.95 : régimes équatoriaux à cycle plat = faible rapport signal\/bruit"
+ },
+ {
+  "section":"1 Climat",
+  "check":"kananga: CV interannuel pluie",
+  "measured":"0.150",
+  "expected":"[0.07, 0.3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"kananga: erreur T moyenne (°C, max mensuel)",
+  "measured":"0.202",
+  "expected":"[, 0.8]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"kananga: ET0 annuelle (mm)",
+  "measured":"1398",
+  "expected":"[1000, 1650]",
+  "status":"PASS",
+  "note":"plage large : à calibrer sur POWER"
+ },
+ {
+  "section":"1 Climat",
+  "check":"kananga: RH moyenne (%)",
+  "measured":"68",
+  "expected":"[55, 85]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"kananga: fréquence jours humides",
+  "measured":"0.371",
+  "expected":"[0.2, 0.55]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"kananga: QC physique (plages, Tmax>=Tmin, NaN)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"kananga: Rs <= 0.82 Ra",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"mbandaka: pluie annuelle vs cible (écart %)",
+  "measured":"-3.8",
+  "expected":"[-8, 8]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"mbandaka: corrélation cycle mensuel",
+  "measured":"0.969",
+  "expected":"[0.95, ]",
+  "status":"PASS",
+  "note":"seuil 0.95 : régimes équatoriaux à cycle plat = faible rapport signal\/bruit"
+ },
+ {
+  "section":"1 Climat",
+  "check":"mbandaka: CV interannuel pluie",
+  "measured":"0.150",
+  "expected":"[0.07, 0.3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"mbandaka: erreur T moyenne (°C, max mensuel)",
+  "measured":"0.088",
+  "expected":"[, 0.8]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"mbandaka: ET0 annuelle (mm)",
+  "measured":"1343",
+  "expected":"[1000, 1650]",
+  "status":"PASS",
+  "note":"plage large : à calibrer sur POWER"
+ },
+ {
+  "section":"1 Climat",
+  "check":"mbandaka: RH moyenne (%)",
+  "measured":"75",
+  "expected":"[55, 85]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"mbandaka: fréquence jours humides",
+  "measured":"0.446",
+  "expected":"[0.2, 0.55]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"mbandaka: QC physique (plages, Tmax>=Tmin, NaN)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"1 Climat",
+  "check":"mbandaka: Rs <= 0.82 Ra",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Bilans (conservation)",
+  "check":"résidu bilan hydrique cumulé (mm)",
+  "measured":"8.70e-12",
+  "expected":"[, 1e-06]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Bilans (conservation)",
+  "check":"résidu bilan hydrique journalier max (mm)",
+  "measured":"1.14e-13",
+  "expected":"[, 1e-06]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Bilans (conservation)",
+  "check":"résidu bilan N (kg\/ha)",
+  "measured":"6.32e-11",
+  "expected":"[, 1e-06]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Bilans (conservation)",
+  "check":"résidu bilan P (kg\/ha)",
+  "measured":"2.34e-12",
+  "expected":"[, 1e-06]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"2 Bilans (conservation)",
+  "check":"résidu bilan K (kg\/ha)",
+  "measured":"1.82e-12",
+  "expected":"[, 1e-06]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Rendements (plausibilité)",
+  "check":"maize faible intrant (t\/ha, moy. 3 sites ferralsol\/acrisol)",
+  "measured":"1.846",
+  "expected":"[0.4, 2.8]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Rendements (plausibilité)",
+  "check":"maize intrants élevés (t\/ha, moy. 3 sites ferralsol\/acrisol)",
+  "measured":"3.474",
+  "expected":"[2.5, 7.0]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Rendements (plausibilité)",
+  "check":"cassava faible intrant (t\/ha, moy. 3 sites ferralsol\/acrisol)",
+  "measured":"13.020",
+  "expected":"[4, 16]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Rendements (plausibilité)",
+  "check":"cassava intrants élevés (t\/ha, moy. 3 sites ferralsol\/acrisol)",
+  "measured":"15.770",
+  "expected":"[10, 32]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Rendements (plausibilité)",
+  "check":"bean faible intrant (t\/ha, moy. 3 sites ferralsol\/acrisol)",
+  "measured":"1.031",
+  "expected":"[0.3, 1.8]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Rendements (plausibilité)",
+  "check":"bean intrants élevés (t\/ha, moy. 3 sites ferralsol\/acrisol)",
+  "measured":"2.159",
+  "expected":"[1.0, 3.2]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Rendements (plausibilité)",
+  "check":"groundnut faible intrant (t\/ha, moy. 3 sites ferralsol\/acrisol)",
+  "measured":"1.170",
+  "expected":"[0.3, 1.8]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Rendements (plausibilité)",
+  "check":"groundnut intrants élevés (t\/ha, moy. 3 sites ferralsol\/acrisol)",
+  "measured":"2.163",
+  "expected":"[1.0, 3.2]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Rendements (plausibilité)",
+  "check":"rice_upland faible intrant (t\/ha, moy. 3 sites ferralsol\/acrisol)",
+  "measured":"2.101",
+  "expected":"[0.5, 2.8]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Rendements (plausibilité)",
+  "check":"rice_upland intrants élevés (t\/ha, moy. 3 sites ferralsol\/acrisol)",
+  "measured":"3.329",
+  "expected":"[2.0, 5.5]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"3 Rendements (plausibilité)",
+  "check":"ratio exploitation faible intrant \/ intrants élevés (maïs)",
+  "measured":"0.578",
+  "expected":"[0.15, 0.6]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"4 Sensibilités (réponse causale)",
+  "check":"réponse N maïs monotone non décroissante (0\/50\/100\/150)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":"[np.float64(2.05), np.float64(2.42), np.float64(2.53), np.float64(2.53)]"
+ },
+ {
+  "section":"4 Sensibilités (réponse causale)",
+  "check":"réponse P maïs monotone (0\/15\/30) sol P-déficient",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":"[np.float64(2.51), np.float64(2.51), np.float64(2.51)]"
+ },
+ {
+  "section":"4 Sensibilités (réponse causale)",
+  "check":"sécheresse (-85 % pluie 60 j) : variation rendement maïs %",
+  "measured":"-62.7",
+  "expected":"[, -10]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"4 Sensibilités (réponse causale)",
+  "check":"inondation (4 j x 120 mm) : variation rendement maïs %",
+  "measured":"-15.3",
+  "expected":"[, -5]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"4 Sensibilités (réponse causale)",
+  "check":"canicule (+8 °C, 15 j en floraison) : variation %",
+  "measured":"-32.5",
+  "expected":"[, -3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"4 Sensibilités (réponse causale)",
+  "check":"perte de fertilité -50 % : variation %",
+  "measured":"-38.9",
+  "expected":"[, -10]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"4 Sensibilités (réponse causale)",
+  "check":"ravageur (50 % sur 15 j) : variation %",
+  "measured":"-17.5",
+  "expected":"[, -3]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"4 Sensibilités (réponse causale)",
+  "check":"épidémie (x5 infection) : variation %",
+  "measured":"-4.8",
+  "expected":"[, -1]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"4 Sensibilités (réponse causale)",
+  "check":"érosion pente 25 % \/ pente 5 % (ratio)",
+  "measured":"15.665",
+  "expected":"[2.0, ]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"4 Sensibilités (réponse causale)",
+  "check":"érosion annuelle pente 25 % (t\/ha\/an)",
+  "measured":"149.7",
+  "expected":"[5, 250]",
+  "status":"PASS",
+  "note":"ordre de grandeur pentes cultivées Grands Lacs ; NON validé"
+ },
+ {
+  "section":"4 Sensibilités (réponse causale)",
+  "check":"effet précédent légumineuse sur maïs (%)",
+  "measured":"+9.1",
+  "expected":"[3, 60]",
+  "status":"PASS",
+  "note":"littérature : +10 à +40 %"
+ },
+ {
+  "section":"5 Dynamique du sol (10 ans)",
+  "check":"perte relative de COS en 10 ans, bas intrants (%\/an)",
+  "measured":"-2.27",
+  "expected":"[-6, 0.2]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"5 Dynamique du sol (10 ans)",
+  "check":"variation pH en 10 ans (unités)",
+  "measured":"-0.11",
+  "expected":"[-1.0, 0.1]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"5 Dynamique du sol (10 ans)",
+  "check":"cumul érosion 10 ans (t\/ha)",
+  "measured":"228",
+  "expected":"[5, 600]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"5 Dynamique du sol (10 ans)",
+  "check":"COS fin : (résidus 100 % + engrais) - (résidus 10 %), % points",
+  "measured":"+0.043",
+  "expected":"[0.0, ]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"6 Robustesse des entrées",
+  "check":"déterminisme (même graine => même résultat)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"6 Robustesse des entrées",
+  "check":"refus des NaN non réparés (pas de fabrication silencieuse)",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"6 Robustesse des entrées",
+  "check":"réparation des trous <= 5 j puis simulation OK",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"6 Robustesse des entrées",
+  "check":"valeur aberrante (900 mm\/j) détectée par le QC",
+  "measured":"True",
+  "expected":"True",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"6 Robustesse des entrées",
+  "check":"CV du rendement sous bruit capteur (pluie 10 %, T ±1 °C)",
+  "measured":"0.003",
+  "expected":"[, 0.25]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"8 Performance",
+  "check":"temps par simulation de 3 ans (ms)",
+  "measured":"28",
+  "expected":"[, 300]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"8 Performance",
+  "check":"saisons simulées par seconde (1 cœur)",
+  "measured":"105",
+  "expected":"[10, ]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"8 Performance",
+  "check":"pic mémoire par simulation (Mo)",
+  "measured":"0.2",
+  "expected":"[, 50]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"8 Performance",
+  "check":"durée pour 1 million de saisons, 1 cœur (heures)",
+  "measured":"2.6",
+  "expected":"[, 40]",
+  "status":"PASS",
+  "note":"parallélisable (batch.py)"
+ },
+ {
+  "section":"9 Stabilité numérique",
+  "check":"états négatifs \/ non finis \/ rendement aberrant sur 100 simulations extrêmes (pente 35 %)",
+  "measured":"0",
+  "expected":"[, 0]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"9 Stabilité numérique",
+  "check":"résidu de bilan maximal en conditions extrêmes (mm ou kg\/ha)",
+  "measured":"4.5e-11",
+  "expected":"[, 1e-06]",
+  "status":"PASS",
+  "note":""
+ },
+ {
+  "section":"9 Stabilité numérique",
+  "check":"simulations extrêmes sans récolte (culture non arrivée à maturité dans l'horizon)",
+  "measured":"5\/100",
+  "expected":"",
+  "status":"INFO",
+  "note":"à interpréter : cycle trop long (manioc en altitude) ou semis impossible"
+ }
+]
